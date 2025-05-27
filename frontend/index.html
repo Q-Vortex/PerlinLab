@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bec8b2683f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://localhost:35729/livereload.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="zoom"><div class="map"></div></div>
+    
+    <div class="settings_container">
+        <div class="gen_type_container">
+            <p>Perlin's Noise</p><i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="perlin_noise_settings_container">
+            <div class="layers_container">
+                <div class="layers_container_header">
+                    <p>Layers</p><p class="layers_num"></p>
+                    <button class="add_layer"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="layers">
+                </div>
+            </div>
+        </div>
+        <div class="map_size">
+            <p>Map size</p>
+            <input type="text" value="128" class="input_size" placeholder="128">
+        </div>
+        <div class="noise">
+            <p>Noise</p>
+            <input type="number" value="0.04" class="input_noise" min="0" placeholder="0.04" step="0.001" max="1">
+        </div>
+        <div class="seed_container">
+            <p>Seed</p>
+            <input type="text" value="0" class="input_seed" placeholder="0">
+            <input type="checkbox" id="random_seed" checked>
+            <label for="random_seed" class="random_seed__label"><i class="fa-solid fa-shuffle"></i></label>
+        </div>
+        <div class="auto_update_container">
+            <p>Auto Update</p>
+            <input type="checkbox" id="auto_update">
+            <label for="auto_update" class="auto_update__label"></label>
+        </div>
+        <div class="save_data">
+            <button class="save"><i class="fa-solid fa-file-import"></i><p>Save</p></button>
+            <button class="load"><i class="fa-solid fa-file-export"></i><p>Load</p></button>
+        </div>
+        <button class="settings_btn border_set"><i class="fa-solid fa-border-all"></i></button>
+        <button class="settings_btn update"><i class="fa-solid fa-rotate"></i></button>
+    </div>
+    <script src="sender.js"></script>
+    <script src="generators.js"></script>
+    <script src="btn_func.js"></script>
+</body>
+</html>

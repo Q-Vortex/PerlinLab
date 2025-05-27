@@ -1,0 +1,374 @@
+@import url("variables.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #e1e0e9;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #2d2e37;
+    overflow: hidden;
+}
+
+.zoom {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map {
+    display: grid;
+    background: red;
+}
+
+.el {
+    width: 5px;
+    height: 5px;
+    background: var(--void);
+}
+
+.el.bordered {
+    border: .1px solid #000;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.settings_btn {
+    padding: 10px;
+    border-radius: 10px;
+    background: #2d2e37;
+    box-shadow: 0 2px 5px #000000 inset;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow .1s ease;
+
+    &:hover {
+        box-shadow: 0 0px 10px #000000 inset,
+                    0 0 1px 1px #fff;
+    }
+}
+
+.settings_btn i {
+    margin-top: 2px;
+    font-size: 20px;
+    color: #e1e0e9;
+}
+
+.update {
+    width: 100%;
+}
+
+.settings_container {
+    position: absolute;
+    gap: 10px;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 1px #000000;
+    border-radius: 0 0 10px 10px;
+    width: 300px;
+    background: #2d2e37;
+    transform-origin: 100% 0;
+}
+
+.gen_type_container {
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px #000000 inset;
+    border-radius: 6px;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    font-weight: 800;
+}
+
+.gen_type_container > * {
+    color: #595a67;
+}
+
+.layers_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.layers_container_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    font-weight: 800;
+    gap: 5px;
+    
+}
+
+.add_layer {
+    aspect-ratio: 1/1;
+    width: 30px;
+    background: none;
+    box-shadow: 0 2px 5px #000000 inset;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow .1s ease;
+
+    &:hover {
+        box-shadow: 0 0px 10px #000000 inset,
+                    0 0 0px 1px #fff;
+    }
+}
+
+.layers {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 200px;
+    max-height: 200px;
+    overflow: auto;
+    border-bottom: 2px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px #000 inset;
+}
+
+.layers::-webkit-scrollbar {
+    width: 5px;
+}
+
+.layer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 1px #000;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.layers_num {
+    margin-right: auto;
+}
+
+.layer > * {
+    flex: 1 1 auto;
+} 
+
+.layer_color {
+    border: none;
+    outline: none;
+    background: none;
+    height: 30px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}
+
+.layer_name {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 5px;
+    margin-right: auto;
+    font-size: large;;
+    width: 100%;
+}
+
+.layer_scale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+.remove_layer {
+    height: 30px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #e1e0e9;
+    border-radius: 5px;
+
+    & i {
+        pointer-events: none;
+    }
+
+    &:hover {
+        border: .1px solid #fff;
+    }
+}
+
+.map_size {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-wrap: nowrap;
+    font-size: large;
+    font-weight: 800;
+}
+
+.input_size {
+    background: none;
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-size: large;
+    font-weight: 800;
+    direction: rtl;
+}
+
+.noise {
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+        font-size: large;
+        font-weight: 800;
+    }
+
+    & input {
+        border: none;
+        background: none;
+        outline: none;
+        direction: rtl;
+    }
+}
+
+.seed_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > * {
+        font-size: large;
+        font-weight: 800;
+        flex: 1 1 auto;
+    }
+
+
+    & input {
+        background: none;
+        border: none;
+        direction: rtl;
+        outline: none;
+        margin-right: 10px;
+    }
+}
+
+#random_seed {
+    display: none;
+} 
+
+.random_seed__label {
+    border: none;
+    background: none;
+    box-shadow: 0 2px 5px #000000 inset;
+    width: 15px;
+    aspect-ratio: 1/1;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow .1s ease;
+    
+    &:hover {
+        box-shadow: 0 0px 10px #000000 inset,
+                    0 0 0px 1px #fff;
+    }
+}
+
+
+#random_seed:checked + .random_seed__label{
+  background: green;
+}
+
+.auto_update_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: large;
+    font-weight: 800;
+}
+
+#auto_update {
+    display: none;
+}
+
+.auto_update__label {
+    border: none;
+    background: none;
+    box-shadow: 0 2px 5px #000000 inset;
+    width: 25px;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0px 10px #000000 inset,
+                    0 0 0px 1px #fff;
+    }
+}
+
+#auto_update:checked + .auto_update__label{
+  background: green;
+}
+
+.save_data {
+    display: flex;
+    gap: 10px;
+}
+
+.save_data button {
+    flex: 1 1 auto;
+    padding: 10px 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: none;
+    box-shadow: 0 3px 5px #000000 inset;
+    border: none;
+    border-bottom: 2px solid #000;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 800;
+    cursor: pointer;
+    transition: box-shadow .1s ease;
+
+    &:hover {
+        box-shadow: 0 0px 10px #000000 inset,
+                    0 0 1px 1px #fff;
+    }
+}

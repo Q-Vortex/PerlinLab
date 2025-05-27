@@ -1,0 +1,48 @@
+{
+  "layers": [
+    {
+      "code": "item-1",
+      "name": "ocean",
+      "color": "#2658a9",
+      "scale": 0.6
+    },
+    {
+      "code": "item-2",
+      "name": "water",
+      "color": "#8db3f1",
+      "scale": 0.65
+    },
+    {
+      "code": "item-3",
+      "name": "sand",
+      "color": "#fddf5b",
+      "scale": 0.67
+    },
+    {
+      "code": "item-4",
+      "name": "grass",
+      "color": "#30af3d",
+      "scale": 0.7
+    },
+    {
+      "code": "item-5",
+      "name": "mountain",
+      "color": "#6a6a6a",
+      "scale": 0.75
+    },
+    {
+      "code": "item-6",
+      "name": "snow",
+      "color": "#ffffff",
+      "scale": 1
+    }
+  ],
+  "parameters": {
+    "map_size": "128",
+    "noise": "0.04",
+    "seed": "271645",
+    "random_seed": true,
+    "auto_update": false,
+    "bordered": false
+  }
+}
