@@ -10,8 +10,6 @@ const jsonMg = require('./jsonmg.js');
 
 const app = express();
 
-const rootPath = "/mnt/a/web/mapGen/";
-
 app.use(cors());
 app.use(express.json());
 
@@ -35,13 +33,13 @@ app.use(connectLivereload());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, `${rootPath}/frontend/index.html`));
+  res.sendFile(path.join(__dirname, `../frontend/index.html`));
 });
 
 app.post('/api/data', (req, res) => {
   console.log('data: ', req.body);
   if (JSON.stringify(req.body) === JSON.stringify({})) {
-    const jsonData = fs.readFileSync(`${rootPath}/data/perlin_noise_settup.json`, 'utf-8');
+    const jsonData = fs.readFileSync(`../data/perlin_noise_settup.json`, 'utf-8');
     const data = JSON.parse(jsonData);
     return res.json({ data });
   } else {
